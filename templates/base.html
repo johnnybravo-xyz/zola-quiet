@@ -34,6 +34,13 @@
    site sets [markdown.highlighting] style = "class" + light/dark theme. #}
 <link rel="stylesheet" id="syntax-light" href="/giallo-light.css" media="(prefers-color-scheme: light)">
 <link rel="stylesheet" id="syntax-dark" href="/giallo-dark.css" media="(prefers-color-scheme: dark)">
+{# Optional analytics — fires only if config.extra.goatcounter_domain
+   is set in the site's config.toml. Keeps the theme provider-neutral
+   and self-hosted-only by default. #}
+{% if config.extra.goatcounter_domain %}
+<script data-goatcounter="https://{{ config.extra.goatcounter_domain }}/count"
+        async src="https://{{ config.extra.goatcounter_domain }}/count.js"></script>
+{% endif %}
 </head>
 <body>
 <div class="controls">
