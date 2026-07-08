@@ -292,6 +292,13 @@ article h1 {
   font-weight: 400;
 }
 
+/* post content images — never overflow the content column */
+.post-content img,
+article img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* xkcd figure — same structure, lighter chrome */
 figure.xkcd {
   margin: 2rem 0;
