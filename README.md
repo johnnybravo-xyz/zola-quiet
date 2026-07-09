@@ -1,16 +1,12 @@
-# zola-quiet
+# zola-quiet — docs-handbook-look branch
 
-A quiet, two-skin Zola theme. Two stylesheets ship together — a
-Minima-flavoured typographic skin and a monospace terminal skin —
-and a runtime toggle in the top-right flips between them with the
-choice saved to `localStorage`. A second toggle handles light/dark
-in the same way.
+Adds a docs/handbook-style on-page TOC to the terminal skin. Any
+post with headings gets a sticky "on this page" nav pinned under
+the ASCII sidebar; scroll-spy highlights the active heading. Base
+theme (two skins, light/dark, quiet chrome) is untouched — enable
+by loading `style-terminal.css`.
 
-No frameworks, no fonts hot-linked from a CDN, no analytics, no
-search, no comments. Static HTML out of Zola, two CSS files, two
-tiny inline scripts.
-
-![zola-quiet screenshot](screenshot.png)
+![zola-quiet docs-handbook-look screenshot](screenshot-docs.png)
 
 ## What you get
 
