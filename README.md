@@ -2,12 +2,12 @@
 
 A quiet, three-skin Zola theme. Three stylesheets ship together — a
 Minima-flavoured typographic skin, a monospace terminal skin, and a
-TUI/ncurses skin with an ASCII-drawn article frame — and a runtime
-toggle in the top-right cycles between them with the choice saved
-to `localStorage`. A second toggle handles light/dark in the same
-way. Posts with headings get a docs-style "on this page" TOC pinned
-under the sidebar (terminal + tui skins only), with scroll-spy for
-the active section.
+TUI/ncurses skin with an ASCII-drawn article frame. Each ships with
+a matched light and dark mode, and two runtime toggles in the
+top-right flip between them (skin cycle + light/dark). Both choices
+persist to `localStorage`. Posts with headings get a docs-style "on
+this page" TOC pinned under the sidebar on the terminal + tui skins,
+with scroll-spy for the active section.
 
 No frameworks, no fonts hot-linked from a CDN, no analytics, no
 search, no comments. Static HTML out of Zola, three CSS files, two
@@ -15,31 +15,41 @@ tiny inline scripts.
 
 ## Screenshots
 
+Every skin below is shown with its light mode on the left and dark
+mode on the right, rendered from the built-in `lorem-preview`
+sample post via [`scripts/screenshots.sh`](scripts/screenshots.sh).
+
 Minima skin (the default):
 
-![zola-quiet minima screenshot](screenshot.png)
+![zola-quiet minima — light and dark](screenshot.png)
 
-Terminal skin with on-page TOC:
+Terminal skin with the on-page TOC:
 
-![zola-quiet terminal + TOC screenshot](screenshot-docs.png)
+![zola-quiet terminal — light and dark](screenshot-terminal.png)
 
-TUI skin with ASCII article frame:
+TUI/ncurses skin with ASCII article frame:
 
-![zola-quiet TUI screenshot](screenshot-tui.png)
+![zola-quiet TUI — light and dark](screenshot-tui.png)
 
 ## What you get
 
-- **Three skins.** `style.css` is the default (Minima-flavoured —
-  system sans, ~740 px column, weight-400 headings, blue links).
+- **Three skins, each with matched light + dark modes.**
+  `style.css` is the default (Minima-flavoured — system sans,
+  ~740 px column, weight-400 headings, blue links).
   `style-terminal.css` is the monospace alternate (`→ ` list
   markers, side-by-side sidebar on desktop). `style-tui.css` is
   the TUI/ncurses look (ASCII article frame, `-rw-r--r--` post
   list, warm-paper light / near-black dark palette).
 - **Light/dark toggle.** Sun/moon icon, system-preference default,
   flash-free on cold loads (the choice is applied to `<html>`
-  before the stylesheet is fetched).
+  before the stylesheet is fetched). Every skin defines both
+  palettes; nothing to opt into.
 - **Skin toggle.** Type/terminal glyph next to the theme toggle.
-  Click to swap stylesheets at runtime — no rebuild.
+  Click to cycle stylesheets at runtime — no rebuild.
+- **On-page TOC.** Set `insert_anchor_links = "left"` on a section
+  or page and posts with headings get a sticky "on this page" nav
+  pinned under the sidebar (terminal + tui skins). Scroll-spy
+  highlights the active heading.
 - **Addendum convention.** `<div class="addendum">` for adding
   dated extensions to posts after their original publish date.
   Visible eyebrow, left rule, tinted background, dark-mode aware.

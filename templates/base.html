@@ -10,13 +10,16 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <script>
 /* Set data-theme + data-skin BEFORE the stylesheet loads, so the
-   correct sheet ships on first paint and there's no flash. */
+   correct sheet ships on first paint and there's no flash. Also
+   honours ?theme=…&skin=… as a one-shot override (used by the
+   screenshots.sh script and for sharing preview links). */
 (function(){
   var skins = { terminal: '/style-terminal.css', tui: '/style-tui.css' };
   try {
-    var t = localStorage.getItem('theme');
+    var qs = new URLSearchParams(location.search);
+    var t = qs.get('theme') || localStorage.getItem('theme');
     if (t==='dark'||t==='light') document.documentElement.setAttribute('data-theme', t);
-    var s = localStorage.getItem('skin');
+    var s = qs.get('skin') || localStorage.getItem('skin');
     if (s==='terminal' || s==='tui') document.documentElement.setAttribute('data-skin', s);
     var href = skins[s] || '/style.css';
     var link = document.createElement('link');

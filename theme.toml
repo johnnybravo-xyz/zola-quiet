@@ -1,5 +1,5 @@
 name = "zola-quiet"
-description = "A quiet, two-skin Zola theme: a Minima-flavoured typographic skin and a monospace terminal skin. Light/dark toggle, addendum convention, iframe theme-sync protocol baked in."
+description = "A quiet, three-skin Zola theme: Minima-flavoured typography, monospace terminal, and a TUI/ncurses look with ASCII article frame. Every skin ships with matched light and dark modes plus a runtime toggle. Docs-style on-page TOC, addendum convention, iframe theme-sync protocol baked in."
 license = "MIT"
 homepage = "https://github.com/johnnybravo-xyz/zola-quiet"
 min_version = "0.19.0"
@@ -12,8 +12,9 @@ homepage = "https://johnnybravo.xyz"
 [extra]
 # Reference list of [extra] keys the templates read. None are required;
 # every block is wrapped in {% if %} guards so the theme degrades cleanly.
-author = ""           # name in <meta author> and footer copyright line
-github = ""           # username; renders a GitHub icon in the footer
-linkedin = ""         # username; renders a LinkedIn icon in the footer
-email = ""            # address; renders a mail icon in the footer
-ascii_signature = ""  # optional multi-line ASCII art shown above content
+author = ""              # name in <meta author> and footer copyright line
+github = ""              # username; renders a GitHub icon in the footer
+linkedin = ""            # username; renders a LinkedIn icon in the footer
+email = ""               # address; renders a mail icon in the footer
+ascii_signature = ""     # optional multi-line ASCII art shown above content
+homepage_post_limit = 0  # cap the front-page post list; 0/unset shows all
