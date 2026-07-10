@@ -14,14 +14,13 @@
    honours ?theme=…&skin=… as a one-shot override (used by the
    screenshots.sh script and for sharing preview links). */
 (function(){
-  var skins = { terminal: '/style-terminal.css', tui: '/style-tui.css' };
   try {
     var qs = new URLSearchParams(location.search);
     var t = qs.get('theme') || localStorage.getItem('theme');
     if (t==='dark'||t==='light') document.documentElement.setAttribute('data-theme', t);
     var s = qs.get('skin') || localStorage.getItem('skin');
-    if (s==='terminal' || s==='tui') document.documentElement.setAttribute('data-skin', s);
-    var href = skins[s] || '/style.css';
+    if (s==='tui') document.documentElement.setAttribute('data-skin', 'tui');
+    var href = (s==='tui') ? '/style-tui.css' : '/style.css';
     var link = document.createElement('link');
     link.rel = 'stylesheet'; link.id = 'site-stylesheet'; link.href = href;
     document.head.appendChild(link);
@@ -48,7 +47,7 @@
 </head>
 <body>
 <div class="controls">
-  <button class="skin-toggle" type="button" aria-label="Toggle typography / terminal skin" title="Toggle skin">
+  <button class="skin-toggle" type="button" aria-label="Toggle typography / TUI skin" title="Toggle skin">
     <svg class="icon-terminal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
     <svg class="icon-type" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
   </button>
@@ -92,25 +91,17 @@
 </div>
 </div>
 <script>
-/* skin toggle: cycles minima → terminal → tui → minima */
+/* skin toggle: flips between the minima and tui stylesheets */
 (function(){
   var btn = document.querySelector('.skin-toggle');
   if (!btn) return;
-  var order = ['minima', 'terminal', 'tui'];
-  var hrefs = {
-    minima:   '/style.css',
-    terminal: '/style-terminal.css',
-    tui:      '/style-tui.css',
-  };
   btn.addEventListener('click', function(){
-    var cur = document.documentElement.getAttribute('data-skin');
-    if (order.indexOf(cur) < 0) cur = 'minima';
-    var next = order[(order.indexOf(cur) + 1) % order.length];
-    if (next === 'minima') document.documentElement.removeAttribute('data-skin');
-    else document.documentElement.setAttribute('data-skin', next);
+    var cur = document.documentElement.getAttribute('data-skin') === 'tui' ? 'tui' : 'minima';
+    var next = cur === 'tui' ? 'minima' : 'tui';
+    if (next === 'tui') document.documentElement.setAttribute('data-skin', 'tui');
+    else document.documentElement.removeAttribute('data-skin');
     var link = document.getElementById('site-stylesheet');
-    if (link) link.setAttribute('href', hrefs[next]);
-    btn.setAttribute('title', 'Skin: ' + next + ' (click for next)');
+    if (link) link.setAttribute('href', next === 'tui' ? '/style-tui.css' : '/style.css');
     try { localStorage.setItem('skin', next); } catch(e){}
   });
 })();

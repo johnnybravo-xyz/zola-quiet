@@ -1,10 +1,7 @@
 /* ---------------------------------------------------------------------
    style.css — primary stylesheet (Minima-flavoured).
-   System sans-serif, ~740px column, blue links, light theme only.
-
-   To switch back to the terminal/monospace aesthetic, edit
-   templates/base.html line 10:
-     <link rel="stylesheet" href="/style.css"> -> /style-terminal.css
+   System sans-serif, ~740px column, blue links, matched light/dark.
+   Runtime toggle in the top-right flips this file with style-tui.css.
    --------------------------------------------------------------------- */
 
 :root {
@@ -524,18 +521,18 @@ figure.xkcd figcaption em {
   display: block;
 }
 
-/* skin toggle (typography <-> terminal). Default skin shows the
-   terminal glyph (click to switch); terminal skin shows the type glyph. */
+/* skin toggle (typography <-> tui). Default skin shows the terminal
+   glyph (click to switch to tui); tui skin shows the type glyph. */
 .skin-toggle .icon-type {
   display: none;
 }
 .skin-toggle .icon-terminal {
   display: block;
 }
-:root[data-skin="terminal"] .skin-toggle .icon-terminal {
+:root[data-skin="tui"] .skin-toggle .icon-terminal {
   display: none;
 }
-:root[data-skin="terminal"] .skin-toggle .icon-type {
+:root[data-skin="tui"] .skin-toggle .icon-type {
   display: block;
 }
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Regenerate the README screenshots. Renders content/posts/lorem-preview.md
-# in each skin × theme (minima, terminal, tui × light, dark), then composes
-# the pairs side-by-side into screenshot{,-terminal,-tui}.png.
+# in each skin × theme (minima, tui × light, dark), then composes the pairs
+# side-by-side into screenshot.png (minima) and screenshot-tui.png.
 #
 # Requires: zola, chromium, imagemagick. Run from repo root.
 #
@@ -24,7 +24,7 @@ for _ in $(seq 1 20); do
   sleep 0.3
 done
 
-for skin in minima terminal tui; do
+for skin in minima tui; do
   for theme in light dark; do
     s=${skin/minima/}
     url="http://127.0.0.1:$PORT/posts/$POST/?skin=$s&theme=$theme"
@@ -35,9 +35,8 @@ for skin in minima terminal tui; do
 done
 
 # `screenshot.png` is the primary (minima) — Zola themes showcase reads
-# that filename. The other two are supplementary.
-magick "$OUTDIR/raw-minima-light.png"   "$OUTDIR/raw-minima-dark.png"   +append -bordercolor '#ddd' -border 2 screenshot.png
-magick "$OUTDIR/raw-terminal-light.png" "$OUTDIR/raw-terminal-dark.png" +append -bordercolor '#ddd' -border 2 screenshot-terminal.png
-magick "$OUTDIR/raw-tui-light.png"      "$OUTDIR/raw-tui-dark.png"      +append -bordercolor '#ddd' -border 2 screenshot-tui.png
+# that filename. `screenshot-tui.png` is the supplementary one.
+magick "$OUTDIR/raw-minima-light.png" "$OUTDIR/raw-minima-dark.png" +append -bordercolor '#ddd' -border 2 screenshot.png
+magick "$OUTDIR/raw-tui-light.png"    "$OUTDIR/raw-tui-dark.png"    +append -bordercolor '#ddd' -border 2 screenshot-tui.png
 
-echo "Wrote screenshot.png, screenshot-terminal.png, screenshot-tui.png"
+echo "Wrote screenshot.png, screenshot-tui.png"
