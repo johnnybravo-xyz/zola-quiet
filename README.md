@@ -1,21 +1,40 @@
-# zola-quiet — tui-look branch
+# zola-quiet
 
-A third stylesheet on top of the base theme: a TUI/ncurses skin.
-Monospace everywhere, warm-paper light / near-black dark, an
-ASCII-drawn article frame (`┌── article ──` tab), `ls -la` styled
-post list, and a docs-style TOC pinned under the ASCII sidebar.
-The runtime skin toggle cycles minima → terminal → tui.
+A quiet, three-skin Zola theme. Three stylesheets ship together — a
+Minima-flavoured typographic skin, a monospace terminal skin, and a
+TUI/ncurses skin with an ASCII-drawn article frame — and a runtime
+toggle in the top-right cycles between them with the choice saved
+to `localStorage`. A second toggle handles light/dark in the same
+way. Posts with headings get a docs-style "on this page" TOC pinned
+under the sidebar (terminal + tui skins only), with scroll-spy for
+the active section.
 
-![zola-quiet tui-look screenshot](screenshot-tui.png)
+No frameworks, no fonts hot-linked from a CDN, no analytics, no
+search, no comments. Static HTML out of Zola, three CSS files, two
+tiny inline scripts.
+
+## Screenshots
+
+Minima skin (the default):
+
+![zola-quiet minima screenshot](screenshot.png)
+
+Terminal skin with on-page TOC:
+
+![zola-quiet terminal + TOC screenshot](screenshot-docs.png)
+
+TUI skin with ASCII article frame:
+
+![zola-quiet TUI screenshot](screenshot-tui.png)
 
 ## What you get
 
 - **Three skins.** `style.css` is the default (Minima-flavoured —
   system sans, ~740 px column, weight-400 headings, blue links).
-  `style-terminal.css` is the alternate (monospace everywhere,
-  `→ ` list markers, side-by-side sidebar on desktop).
-  `style-tui.css` is this branch's addition (ASCII article frame,
-  `-rw-r--r--` post list, on-page TOC in the sidebar).
+  `style-terminal.css` is the monospace alternate (`→ ` list
+  markers, side-by-side sidebar on desktop). `style-tui.css` is
+  the TUI/ncurses look (ASCII article frame, `-rw-r--r--` post
+  list, warm-paper light / near-black dark palette).
 - **Light/dark toggle.** Sun/moon icon, system-preference default,
   flash-free on cold loads (the choice is applied to `<html>`
   before the stylesheet is fetched).

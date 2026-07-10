@@ -306,8 +306,8 @@ article h1 {
   color: var(--link);
 }
 
-/* the on-this-page TOC lives inside .sidebar on the TUI skin. Hide it
-   on the primary Minima skin so it doesn't render at all. */
+/* the on-this-page TOC lives inside .sidebar on the terminal + tui skins.
+   Hide it on the primary Minima skin so it doesn't render at all. */
 .sidebar .toc {
   display: none;
 }

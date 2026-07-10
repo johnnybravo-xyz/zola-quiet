@@ -95,6 +95,55 @@ main {
   }
 }
 
+/* on-this-page TOC (nested inside .sidebar, below the ASCII).
+   Rendered by page.html via {% block sidebar_extras %} when a post
+   has headings; scroll-spy highlights the active heading. */
+.sidebar .toc {
+  margin-top: 1.25rem;
+  font-size: 12px;
+  color: var(--fg-dim);
+}
+.toc-title {
+  margin: 0 0 0.6rem;
+  color: var(--fg-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+}
+.toc-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  border-left: 1px solid var(--rule);
+}
+.toc-list li {
+  margin: 0;
+}
+.toc-list ol {
+  list-style: none;
+  padding-left: 0.9rem;
+  margin: 0;
+}
+.toc-list a {
+  display: block;
+  padding: 3px 10px;
+  color: var(--fg-dim);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  line-height: 1.35;
+}
+.toc-list a:hover {
+  color: var(--fg);
+}
+.toc-list a.active {
+  color: var(--hot);
+  border-left-color: var(--hot);
+}
+@media (max-width: 768px) {
+  .sidebar .toc { display: none; }
+}
+
 a {
   color: var(--accent);
   text-decoration: underline;
@@ -368,6 +417,3 @@ article img, article video, article iframe {
   height: auto;
 }
 
-/* on-this-page TOC is a TUI-skin feature; hide it here so the plain
-   terminal skin doesn't render it. */
-.sidebar .toc { display: none; }
