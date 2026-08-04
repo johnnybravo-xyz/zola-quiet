@@ -264,6 +264,39 @@ blockquote {
 }
 blockquote > :last-child { margin-bottom: 0; }
 
+/* --- addendum: dated extension appended after original publish date --- */
+.addendum {
+  position: relative;
+  margin: 2.4em 0 1em;
+  padding: 1.2em 1.5ch 0.9em;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent-alt);
+}
+.addendum::before {
+  content: "┌── added ──";
+  position: absolute;
+  top: -0.6em;
+  left: 1.5ch;
+  padding: 0 0.6ch;
+  background: var(--bg);
+  color: var(--accent-alt);
+  font-size: 0.85em;
+  letter-spacing: 0.02em;
+}
+.addendum > :first-child { margin-top: 0; }
+.addendum > :last-child { margin-bottom: 0; }
+.addendum h2,
+.addendum h3 { margin-top: 0.6em; }
+.addendum-eyebrow {
+  color: var(--accent-alt);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.85em;
+  margin: 0 0 0.9em;
+}
+.addendum-eyebrow::before { content: "» "; }
+
 /* --- code / pre — elevated card, distinct from --panel ------------- */
 pre, code {
   font-family: inherit;
