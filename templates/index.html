@@ -7,7 +7,7 @@
 <h2>&gt; posts</h2>
 {% set limit = config.extra.homepage_post_limit | default(value=0) %}
 {% if limit > 0 and posts.pages | length > limit %}
-  {% set shown = posts.pages | slice(end=limit) %}
+  {% set shown = posts.pages[:limit] %}
 {% else %}
   {% set shown = posts.pages %}
 {% endif %}

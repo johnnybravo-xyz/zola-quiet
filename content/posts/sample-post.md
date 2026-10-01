@@ -63,7 +63,7 @@ or attaching an interactive visualiser to a post you wrote earlier.
 If you save `static/img/xkcd/<num>.png` and call:
 
 ```
-{{/* xkcd(num=1319, title="Automation", alt="…") */}}
+{% raw %}{{ xkcd(num=1319, title="Automation", alt="…") }}{% endraw %}
 ```
 
 …you get a `<figure class="xkcd">` with attribution to Randall and
