@@ -365,6 +365,28 @@ figure.xkcd figcaption em {
   color: var(--fg-dim);
 }
 
+/* visualizer component — collapsible iframe embed */
+details.viz {
+  margin: 2rem 0;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--figure-bg);
+}
+details.viz > summary {
+  cursor: pointer;
+  padding: 0.6rem 1rem;
+  color: var(--link);
+}
+details.viz > summary:hover {
+  color: var(--fg);
+}
+details.viz[open] > summary {
+  border-bottom: 1px solid var(--rule);
+}
+details.viz iframe {
+  display: block;
+}
+
 /* site-wide footer — comment-style copyright line + icon links */
 .site-footer {
   margin: 4rem 0 1rem;

@@ -223,6 +223,9 @@ Useful classes the stylesheets style:
 - `.post-list` — un-bulleted post list with `<time>` prefix.
 - `.tag-chip` — rounded pill rendered for each tag.
 - `figure.xkcd` — bordered comic figure with attribution caption.
+- `details.viz` — collapsible visualiser embed: a `<details>` whose
+  `<summary>` is the toggle and whose body is the iframe. Add `open`
+  to start expanded.
 - `.addendum`, `.addendum-eyebrow` — the dated-extension block.
 - `.controls`, `.skin-toggle`, `.theme-toggle` — top-right toggle pair.
 
