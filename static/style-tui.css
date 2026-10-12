@@ -156,12 +156,12 @@ h3, h4, h5, h6 { font-size: 1rem; color: var(--fg-dim); }
 
 p { margin: 0.6em 0; }
 
-/* --- article frame: ASCII box with a title tab in the top border --- */
+/* --- article frame: a plain box around the post --- */
 article {
   position: relative;
   border: 1px solid var(--border);
   background: var(--panel);
-  padding: 1.6em 2ch 1.2em;
+  padding: 1.2em 2ch;
   margin: 0 0 2em;
   /* long inline code / URLs / hostnames would otherwise push the article
      wider than a phone viewport and clip the frame's right edge */
@@ -169,18 +169,6 @@ article {
   word-break: break-word;
   min-width: 0;
 }
-article::before {
-  content: "┌── article ──";
-  position: absolute;
-  top: -0.6em;
-  left: 1.5ch;
-  padding: 0 0.6ch;
-  background: var(--bg);
-  color: var(--accent);
-  font-size: 0.85em;
-  letter-spacing: 0.02em;
-}
-/* no bottom-right corner tab — the frame closes naturally */
 article header { margin-bottom: 1em; }
 
 /* keep content inside the frame — images and videos wider than the
