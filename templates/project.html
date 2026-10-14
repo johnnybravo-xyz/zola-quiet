@@ -21,7 +21,8 @@
 {% set sub = get_section(path=sub_path) %}
 {% if sub.pages | length > 0 %}
 <h2>&gt; {{ sub.title | lower }}</h2>
-{% if (sub.pages | first).date %}
+{% set first_page = sub.pages | first %}
+{% if first_page.date %}
 <ul class="post-list">
 {% for p in sub.pages %}
 <li>{% if p.date %}<time datetime="{{ p.date }}">{{ p.date | date(format="%Y-%m-%d") }}</time> · {% endif %}<a href="{{ p.permalink | safe }}">{{ p.title }}</a>{% if p.description %} <span class="post-meta">— {{ p.description }}</span>{% endif %}</li>
