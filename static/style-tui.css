@@ -364,6 +364,43 @@ hr {
 }
 .post-list a:hover { background: transparent; }
 
+/* --- doc-grid: a project's undated pages as man-page index cards -- */
+.doc-grid {
+  list-style: none;
+  padding-left: 0;
+  margin: 1em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
+  gap: 1ch;
+}
+.doc-grid li { position: static; margin: 0; }
+.doc-grid li::before { content: none; }
+.doc-grid a {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0.6em 1.5ch;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--fg);
+  text-decoration: none;
+}
+.doc-grid .doc-title {
+  display: block;
+  color: var(--accent-alt);
+  font-weight: 700;
+}
+.doc-grid .doc-title::before { content: "§ "; color: var(--accent); }
+.doc-grid .doc-desc {
+  display: block;
+  margin-top: 0.3em;
+  color: var(--fg-dim);
+}
+.doc-grid a:hover { background: var(--reverse-bg); }
+.doc-grid a:hover .doc-title,
+.doc-grid a:hover .doc-title::before,
+.doc-grid a:hover .doc-desc { color: var(--reverse-fg); }
+
 /* --- whoami block (homepage ASCII) --------------------------------- */
 pre.whoami {
   font-family: inherit;

@@ -279,6 +279,35 @@ hr {
   font-variant-numeric: tabular-nums;
 }
 
+/* a project's undated pages (docs) as cards, unlike the dated post list */
+.doc-grid {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.75rem;
+}
+.doc-grid li { margin: 0; }
+.doc-grid a {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  color: var(--fg);
+  text-decoration: none;
+}
+.doc-grid a:hover { border-color: var(--link); }
+.doc-grid .doc-title { display: block; font-weight: 600; }
+.doc-grid a:hover .doc-title { color: var(--link); }
+.doc-grid .doc-desc {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--fg-dim);
+  font-size: 14px;
+}
+
 .post-empty {
   color: var(--fg-dim);
 }
