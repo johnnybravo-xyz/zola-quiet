@@ -84,7 +84,10 @@ body {
 }
 .sidebar {
   flex-shrink: 0;
-  width: 22ch;
+  /* 22ch, or wider when the ascii signature's longest line needs it: its
+     lines cannot wrap, so they set min-content; TOC entries still wrap */
+  width: min-content;
+  min-width: 22ch;
   position: sticky;
   top: 2rem;
   align-self: flex-start;
