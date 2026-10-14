@@ -194,6 +194,12 @@ article .post-meta {
 .project-hero { display: block; margin: 1em 0 0.5em; }
 .project-hero iframe { display: block; width: 100%; height: auto; border: 0; background: transparent; pointer-events: none; }
 
+/* a page that sets layout_class "layout-wide" (projects) spans the screen */
+@media (min-width: 901px) {
+  .layout.layout-wide { max-width: none; }
+  .layout-wide main { max-width: none; flex: 1; }
+}
+
 /* projects page: projects side by side where there is room; heroes share
    one box so names line up whatever each figure's proportions */
 .project-grid {

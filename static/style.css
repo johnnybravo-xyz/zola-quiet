@@ -320,6 +320,11 @@ hr {
 .project-hero { display: block; margin: 2rem 0 0.5rem; }
 .project-hero iframe { display: block; width: 100%; height: auto; border: 0; background: transparent; pointer-events: none; }
 
+/* a page that sets layout_class "layout-wide" (projects) spans the screen */
+@media (min-width: 900px) {
+  .layout.layout-wide { max-width: none; padding: 0 4vw; }
+}
+
 /* projects page: projects side by side where there is room; heroes share
    one box so names line up whatever each figure's proportions */
 .project-grid {
