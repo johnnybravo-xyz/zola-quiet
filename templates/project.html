@@ -1,0 +1,21 @@
+{#- A project's home: the section's own content, then one list per
+    subsection (docs, posts, ...). Pages without a date are listed without
+    one. Use with template = "project.html" in a section's _index.md. -#}
+{% extends "base.html" %}
+{% block title %}{{ section.title }} · {{ config.title }}{% endblock %}
+{% block description %}{% if section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}{% endblock %}
+{% block content %}
+{{ section.content | safe }}
+
+{% for sub_path in section.subsections %}
+{% set sub = get_section(path=sub_path) %}
+{% if sub.pages | length > 0 %}
+<h2>&gt; {{ sub.title | lower }}</h2>
+<ul class="post-list">
+{% for p in sub.pages %}
+<li>{% if p.date %}<time datetime="{{ p.date }}">{{ p.date | date(format="%Y-%m-%d") }}</time> · {% endif %}<a href="{{ p.permalink | safe }}">{{ p.title }}</a>{% if p.description %} <span class="post-meta">— {{ p.description }}</span>{% endif %}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+{% endblock content %}

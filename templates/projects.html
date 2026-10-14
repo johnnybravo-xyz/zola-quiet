@@ -1,0 +1,25 @@
+{#- A list of projects from the section's front matter, so local projects
+    and ones with their own sites sit side by side:
+
+      [[extra.projects]]
+      name = "agd"
+      tagline = "org-agenda for terminals and coding agents"
+      description = "A sentence or two."
+      url = "projects/agd/"            # site-relative, or a full https:// URL
+      links = [{ name = "source", url = "https://github.com/…" }]
+-#}
+{% extends "base.html" %}
+{% block title %}{{ section.title }} · {{ config.title }}{% endblock %}
+{% block content %}
+<h1>&gt; {{ section.title | lower }}</h1>
+{{ section.content | safe }}
+{% for project in section.extra.projects | default(value=[]) %}
+{% if "://" in project.url %}{% set href = project.url %}{% else %}{% set href = get_url(path=project.url) %}{% endif %}
+<section class="project">
+<h2><a href="{{ href | safe }}">{{ project.name }}</a>{% if project.tagline %} <span class="post-meta">— {{ project.tagline }}</span>{% endif %}</h2>
+{% if project.description %}<p>{{ project.description }}</p>{% endif %}
+{% if project.links %}<p class="post-meta">{% for link in project.links %}<a href="{{ link.url | safe }}">{{ link.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+</section>
+{% endfor %}
+<p><a href="{{ get_url(path='') }}">← home</a></p>
+{% endblock content %}

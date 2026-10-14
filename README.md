@@ -107,6 +107,35 @@ ascii_signature = """
 """
 ```
 
+## Project pages
+
+Three templates cover a site that also documents software:
+
+- `project.html` (section): the section's own content followed by one
+  list per subsection, e.g. docs and posts. `template = "project.html"`.
+- `doc.html` (page): undated documentation with the on-page TOC.
+  `page_template = "doc.html"` in the docs section's `_index.md`.
+- `projects.html` (section): projects listed from front matter, so local
+  ones and projects with their own sites sit side by side:
+
+```toml
++++
+title = "Projects"
+template = "projects.html"
+[[extra.projects]]
+name = "agd"
+tagline = "org-agenda for terminals and coding agents"
+url = "projects/agd/"
+links = [{ name = "source", url = "https://github.com/johnnybravo-xyz/agd" }]
+[[extra.projects]]
+name = "suchi"
+url = "https://suchi.page/"
++++
+```
+
+A site mirrored on a second host sets `extra.canonical_base` to the
+primary host so both copies declare the same canonical URL.
+
 ## Shareable heading anchors
 
 The theme ships an `anchor-link.html` override that renders as a
