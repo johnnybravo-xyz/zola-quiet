@@ -201,7 +201,8 @@ article .post-meta {
 }
 
 /* projects page: projects side by side where there is room; heroes share
-   one box so names line up whatever each figure's proportions */
+   one short box, each figure sized to its height and centred, so names
+   line up and sit near the top of the screen */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
@@ -209,9 +210,15 @@ article .post-meta {
   align-items: start;
 }
 .project-grid .project-hero {
-  aspect-ratio: 7 / 5;
+  aspect-ratio: 2 / 1;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+.project-grid .project-hero iframe {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
 }
 
 /* --- tag chips (mirrors the minima look; palette follows TUI) ------- */
