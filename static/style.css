@@ -322,7 +322,7 @@ hr {
 
 /* a page that sets layout_class "layout-wide" (projects) spans the screen */
 @media (min-width: 900px) {
-  .layout.layout-wide { max-width: none; padding: 0 4vw; }
+  .layout.layout-wide { max-width: none; padding: 0 6vw; }
 }
 
 /* projects page: projects side by side where there is room; heroes share

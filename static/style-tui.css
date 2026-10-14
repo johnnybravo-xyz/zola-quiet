@@ -196,7 +196,7 @@ article .post-meta {
 
 /* a page that sets layout_class "layout-wide" (projects) spans the screen */
 @media (min-width: 901px) {
-  .layout.layout-wide { max-width: none; }
+  .layout.layout-wide { max-width: none; padding: 0 6vw; }
   .layout-wide main { max-width: none; flex: 1; }
 }
 
