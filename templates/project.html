@@ -1,11 +1,20 @@
-{#- A project's home: the section's own content, then one list per
-    subsection (docs, posts, ...). Pages without a date are listed without
-    one. Use with template = "project.html" in a section's _index.md. -#}
+{#- A project's home, laid out like a post: the section's title and
+    description as the header, its content, and its table of contents in
+    the sidebar; then one list per subsection (docs, posts, ...). Pages
+    without a date are listed without one. Use with
+    template = "project.html" in a section's _index.md. -#}
 {% extends "base.html" %}
 {% block title %}{{ section.title }} · {{ config.title }}{% endblock %}
 {% block description %}{% if section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}{% endblock %}
+{% block sidebar_extras %}{% set toc = section.toc %}{% include "toc.html" %}{% endblock %}
 {% block content %}
+<article>
+<header>
+<h1>{{ section.title }}</h1>
+{% if section.description %}<p class="post-meta">{{ section.description }}</p>{% endif %}
+</header>
 {{ section.content | safe }}
+</article>
 
 {% for sub_path in section.subsections %}
 {% set sub = get_section(path=sub_path) %}

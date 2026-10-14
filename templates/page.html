@@ -2,24 +2,7 @@
 {% block title %}{{ page.title }} · {{ config.title }}{% endblock %}
 {% block description %}{% if page.description %}{{ page.description | striptags }}{% elif page.summary %}{{ page.summary | striptags }}{% else %}{{ config.description }}{% endif %}{% endblock %}
 {% block sidebar_extras %}
-{% if page.toc %}
-<nav class="toc" aria-label="On this page">
-<p class="toc-title">on this page</p>
-<ol class="toc-list">
-{% for h in page.toc %}
-<li><a href="#{{ h.id | safe }}">{{ h.title }}</a>
-{% if h.children %}
-<ol>
-{% for sub in h.children %}
-<li><a href="#{{ sub.id | safe }}">{{ sub.title }}</a></li>
-{% endfor %}
-</ol>
-{% endif %}
-</li>
-{% endfor %}
-</ol>
-</nav>
-{% endif %}
+{% set toc = page.toc %}{% include "toc.html" %}
 {% endblock %}
 {% block content %}
 <article>
