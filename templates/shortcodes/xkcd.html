@@ -10,7 +10,7 @@
 {%- set alt = alt | default(value="") -%}
 <figure class="xkcd">
   <a href="https://xkcd.com/{{ num }}/" rel="noopener">
-    <img src="/img/xkcd/{{ num }}.png" alt="{{ alt }}" title="{{ alt }}" loading="lazy">
+    <img src="{{ get_url(path='img/xkcd/' ~ num ~ '.png') }}" alt="{{ alt }}" title="{{ alt }}" loading="lazy">
   </a>
   <figcaption>
     <a href="https://xkcd.com/{{ num }}/">xkcd #{{ num }} &mdash; {{ title }}</a>

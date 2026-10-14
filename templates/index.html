@@ -18,9 +18,9 @@
 {% endfor %}
 </ul>
 {% if remaining > 0 %}
-<p><a href="/posts/">see all {{ posts.pages | length }} posts →</a></p>
+<p><a href="{{ get_url(path='posts/') }}">see all {{ posts.pages | length }} posts →</a></p>
 {% else %}
-<p><a href="/posts/">all posts →</a></p>
+<p><a href="{{ get_url(path='posts/') }}">all posts →</a></p>
 {% endif %}
 {% endif %}
 

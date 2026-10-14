@@ -74,6 +74,10 @@ Then in your `config.toml`:
 theme = "zola-quiet"
 ```
 
+Every link, stylesheet and icon goes through `get_url`, so the theme also
+works when the site is served from a sub-path, such as a GitHub Pages
+project site: set `base_url = "https://you.github.io/project"`.
+
 ## `[extra]` keys the templates read
 
 All optional. Every block is `{% if %}`-guarded so the theme

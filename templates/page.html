@@ -35,5 +35,5 @@
 {% endif %}
 </article>
 
-<p><a href="/posts/">← all posts</a> · <a href="/">home</a></p>
+<p><a href="{{ get_url(path='posts/') }}">← all posts</a> · <a href="{{ get_url(path='') }}">home</a></p>
 {% endblock content %}

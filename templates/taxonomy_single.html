@@ -13,5 +13,5 @@
 </ul>
 {% endif %}
 
-<p><a href="/{{ taxonomy.name }}/">← all {{ taxonomy.name }}</a> · <a href="/">home</a></p>
+<p><a href="{{ get_url(path=taxonomy.name ~ '/') }}">← all {{ taxonomy.name }}</a> · <a href="{{ get_url(path='') }}">home</a></p>
 {% endblock content %}
