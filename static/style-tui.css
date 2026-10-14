@@ -193,6 +193,8 @@ article .post-meta {
 /* projects page: a figure above a project, clicking through to it */
 .project-hero { display: block; margin: 1em 0 0.5em; }
 .project-hero iframe { display: block; width: 100%; height: auto; border: 0; background: transparent; pointer-events: none; }
+/* a figure is not text: keep a:hover's reverse video off it */
+.project-hero:hover { background: transparent; }
 
 /* a page that sets layout_class "layout-wide" (projects) spans the screen */
 @media (min-width: 901px) {
