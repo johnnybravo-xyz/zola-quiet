@@ -173,7 +173,7 @@ article header { margin-bottom: 1em; }
 
 /* keep content inside the frame — images and videos wider than the
    article's content box would otherwise punch through the right side */
-article img, article video, article iframe {
+main img, main video, main iframe {
   max-width: 100%;
   height: auto;
 }
