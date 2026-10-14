@@ -10,7 +10,7 @@
 {% else %}
 <ul class="post-list">
 {% for page in pages %}
-<li><time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time> · <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+<li>{% if page.date %}<time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time> · {% endif %}<a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
 {% endfor %}
 </ul>
 {% if paginator and paginator.number_pagers > 1 %}
