@@ -10,13 +10,14 @@
       hero = { src = "/visualizers/agd.html", title = "…", ratio = "680 / 397" }
 
     `hero` is optional: a page shown above the name, as a picture that
-    links to the project.
+    links to the project. Projects sit side by side where there is room.
 -#}
 {% extends "base.html" %}
 {% block title %}{{ section.title }} · {{ config.title }}{% endblock %}
 {% block content %}
 <h1>&gt; {{ section.title | lower }}</h1>
 {{ section.content | safe }}
+<div class="project-grid">
 {% for project in section.extra.projects | default(value=[]) %}
 {% if "://" in project.url %}{% set href = project.url %}{% else %}{% set href = get_url(path=project.url) %}{% endif %}
 <section class="project">
@@ -26,5 +27,6 @@
 {% if project.links %}<p class="post-meta">{% for link in project.links %}<a href="{{ link.url | safe }}">{{ link.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
 </section>
 {% endfor %}
+</div>
 <p><a href="{{ get_url(path='') }}">← home</a></p>
 {% endblock content %}

@@ -194,6 +194,20 @@ article .post-meta {
 .project-hero { display: block; margin: 1em 0 0.5em; }
 .project-hero iframe { display: block; width: 100%; height: auto; border: 0; background: transparent; pointer-events: none; }
 
+/* projects page: projects side by side where there is room; heroes share
+   one box so names line up whatever each figure's proportions */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
+  gap: 3ch;
+  align-items: start;
+}
+.project-grid .project-hero {
+  aspect-ratio: 7 / 5;
+  display: flex;
+  align-items: center;
+}
+
 /* --- tag chips (mirrors the minima look; palette follows TUI) ------- */
 .tag-list {
   margin: 2rem 0 0;

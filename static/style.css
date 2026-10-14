@@ -320,6 +320,20 @@ hr {
 .project-hero { display: block; margin: 2rem 0 0.5rem; }
 .project-hero iframe { display: block; width: 100%; height: auto; border: 0; background: transparent; pointer-events: none; }
 
+/* projects page: projects side by side where there is room; heroes share
+   one box so names line up whatever each figure's proportions */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+.project-grid .project-hero {
+  aspect-ratio: 7 / 5;
+  display: flex;
+  align-items: center;
+}
+
 /* page article header */
 article header {
   margin-bottom: 1.5rem;
