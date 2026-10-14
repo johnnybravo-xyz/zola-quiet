@@ -6,6 +6,9 @@
 <title>{% block title %}{{ config.title }}{% endblock %}</title>
 <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
 {% if config.extra.author %}<meta name="author" content="{{ config.extra.author }}">{% endif %}
+{#- A site mirrored on another host sets canonical_base to that host so
+    both copies name one canonical URL, e.g. "https://example.com/projects/x". -#}
+{% if config.extra.canonical_base and current_path %}<link rel="canonical" href="{{ config.extra.canonical_base }}{{ current_path }}">{% endif %}
 <link rel="icon" type="image/svg+xml" href="{{ get_url(path='favicon.svg') }}">
 <link rel="icon" type="image/x-icon" href="{{ get_url(path='favicon.ico') }}">
 <script>
