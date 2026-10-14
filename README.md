@@ -127,11 +127,15 @@ name = "agd"
 tagline = "org-agenda for terminals and coding agents"
 url = "projects/agd/"
 links = [{ name = "source", url = "https://github.com/johnnybravo-xyz/agd" }]
+hero = { src = "/visualizers/agd.html", title = "An org-mode bench", ratio = "680 / 397" }
 [[extra.projects]]
 name = "suchi"
 url = "https://suchi.page/"
 +++
 ```
+
+`hero` is optional: a page (an animated figure, say) shown above the
+project's name as a picture that links to it.
 
 A site mirrored on a second host sets `extra.canonical_base` to the
 primary host so both copies declare the same canonical URL.

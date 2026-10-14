@@ -287,6 +287,10 @@ hr {
   font-size: 14px;
 }
 
+/* projects page: a figure above a project, clicking through to it */
+.project-hero { display: block; margin: 2rem 0 0.5rem; }
+.project-hero iframe { display: block; width: 100%; height: auto; border: 0; background: transparent; pointer-events: none; }
+
 /* page article header */
 article header {
   margin-bottom: 1.5rem;

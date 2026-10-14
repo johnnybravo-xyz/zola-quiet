@@ -7,6 +7,10 @@
       description = "A sentence or two."
       url = "projects/agd/"            # site-relative, or a full https:// URL
       links = [{ name = "source", url = "https://github.com/…" }]
+      hero = { src = "/visualizers/agd.html", title = "…", ratio = "680 / 397" }
+
+    `hero` is optional: a page shown above the name, as a picture that
+    links to the project.
 -#}
 {% extends "base.html" %}
 {% block title %}{{ section.title }} · {{ config.title }}{% endblock %}
@@ -16,7 +20,8 @@
 {% for project in section.extra.projects | default(value=[]) %}
 {% if "://" in project.url %}{% set href = project.url %}{% else %}{% set href = get_url(path=project.url) %}{% endif %}
 <section class="project">
-<h2><a href="{{ href | safe }}">{{ project.name }}</a>{% if project.tagline %} <span class="post-meta">— {{ project.tagline }}</span>{% endif %}</h2>
+{% if project.hero %}<a class="project-hero" href="{{ href | safe }}" tabindex="-1" aria-hidden="true"><iframe src="{{ project.hero.src }}" title="{{ project.hero.title }}" tabindex="-1" loading="lazy" style="aspect-ratio: {{ project.hero.ratio }}"></iframe></a>
+{% endif %}<h2><a href="{{ href | safe }}">{{ project.name }}</a>{% if project.tagline %} <span class="post-meta">— {{ project.tagline }}</span>{% endif %}</h2>
 {% if project.description %}<p>{{ project.description }}</p>{% endif %}
 {% if project.links %}<p class="post-meta">{% for link in project.links %}<a href="{{ link.url | safe }}">{{ link.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
 </section>
